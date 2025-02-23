@@ -1,18 +1,9 @@
 const express = require('express');
+const { createUser, handleLogin } = require('../controllers/userController');
 
 const routerAPI = express.Router();
 
-// const { getUsersAPI, postCreateUserAPI,
-//     putUpdateUserAPI, deleteUserAPI
+routerAPI.post("/register", createUser);
+routerAPI.post("/login", handleLogin);
 
-// } = require('../controllers/apiController')
-
-
-// routerAPI.get('/users', getUsersAPI);
-// routerAPI.post('/users', postCreateUserAPI);
-// routerAPI.put('/users', putUpdateUserAPI);
-// routerAPI.delete('/users', deleteUserAPI);
-
-
-
-module.exports = routerAPI; //export default
+module.exports = routerAPI; 
