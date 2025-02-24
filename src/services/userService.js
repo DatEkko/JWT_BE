@@ -82,10 +82,29 @@ const loginService = async (data) => {
     }
 }
 
+const getUserService = async () => {
+    try {
+        const user = await User.find({}, '-password');
+        if (user) {
+            return {
+                EC: 0,
+                data: user
+            }
 
+        } else {
+            return {
+                EC: -1,
+                EM: "No data"
+            }
+        }
 
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
 
 
 module.exports = {
-    createUserService, loginService
+    createUserService, loginService, getUserService
 }
